@@ -4,6 +4,11 @@ while (iniciar){
 
 	const saque = parseInt(prompt("Insira o valor do saque"))
 
+		if (!Number.isInteger(saque) || saque <= 0 ){
+			alert("Número inserido inválido!")
+			continue
+		}
+
 	let resto
 
 	let nota50 = parseInt(saque/50)
