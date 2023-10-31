@@ -76,3 +76,5 @@ if (resultT < 100) {
 } else {
   document.write("Terreno VIP")
 }
+
+
