@@ -1,6 +1,6 @@
 /*exercício 1 e 2*/
 
-/*const driverAge = Number(prompt("Digite a idade do motorista"))
+const driverAge = Number(prompt("Digite a idade do motorista"))
 const license = confirm ("Tem CNH ou não?")
 
 if (driverAge >= 18 && license === true){
@@ -9,7 +9,7 @@ if (driverAge >= 18 && license === true){
 	document.write(`Não pode dirigir`)
 }
 
-
+/*EXERCÍCIO 3*/
 const days1 = Number(prompt("Digite um número de 1 a 7"))
 
 if (days1 === 1){
@@ -37,7 +37,7 @@ else {
 	document.write ("Escreva um número válido")
 }
 
-
+/*EXERCÍCIO 4*/
 let days = Number(prompt("Digite um número de 1 a 7"))
 
 switch (days) {
@@ -69,15 +69,15 @@ switch (days) {
 		break;
 }
 
-
+/*EXERCÍCIO 5*/
 for (let i = 1; i <= 10; i++){
 	if (i %2 == 0){
 		document.write(` ${i}`)
 	}
 }
-*/
 
-/*let counter = 0
+/*EXERCÍCIO 6*/
+let counter = 0
 
  for (let c = 0; c <= 60; c++){
 	if (c %2 != 0){
@@ -87,9 +87,10 @@ for (let i = 1; i <= 10; i++){
 }
 document.write (`</br>Contador: ${counter}`)
 
-
+/*EXERCÍCIO 7*/
 let counter1 =  30
 let suma = 0
+
 do {
 	suma = suma + counter1
 	counter++
@@ -98,6 +99,7 @@ do {
 document.write(`${suma}`)
 
 
+/*EXERCÍCIO 8*/
 let salarioUsuario = Number(prompt('Digite o seu salário'))
 
     if(salarioUsuario < 1903.98) {
@@ -106,7 +108,31 @@ let salarioUsuario = Number(prompt('Digite o seu salário'))
         document.write(`Tributado no Imposto de Renda`)
     }
 
+/*EXERCÍCIO 9*/
 
+let num = Number(prompt("Digite um número para verificar se ele é ou não PRIMO"))
+let prime = true
+
+if (num >= 0 && !isNaN(num) && Number.isInteger(num)) {
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) {
+        prime = false;
+        break;
+    }
+  }
+} else {
+  alert("Número inválido --- ERRO! ")
+}
+
+if (num >= 0 && !isNaN(num) && Number.isInteger(num)) {
+    if (prime && num != 1 && num != 0) {
+      document.write(`${num} é um número primo.`)
+    } else {
+      document.write(`${num} não é um número primo.`)
+    }
+}
+
+/*EXERCÍCIO 10*/
 	let altura = Number(prompt(`Digite a sua altura`))
 
     let genero = Number(prompt('Digite 1 para sexo feminino ou 2 para sexo masculino'))
@@ -123,9 +149,9 @@ let salarioUsuario = Number(prompt('Digite o seu salário'))
     } else {
         document.write(`Digite um número válido`)
     }
-*/
 
-/*let horario = prompt("Digite qual o horário que você estuda utilizando M para matutino, V para vespertino e N para noturno")
+/*EXERCÍCIO 11*/
+let horario = prompt("Digite qual o horário que você estuda utilizando M para matutino, V para vespertino e N para noturno")
 
 switch (horario) {
 	case "M":
@@ -142,10 +168,18 @@ switch (horario) {
 			alert(`Digite um horário válido.`)
 			break;
 	}
-	
 
+/*EXERCÍCIO 12*/
 
+const age = Number(prompt("Digite a idade do candidato a doador"))
 
+if (age >= 18 && age <= 67) {
+    document.write("A pessoa pode doar sangue!")
+} else {
+    document.write("A pessoa NÃO pode doar sangue!")
+}
+
+/*EXERCÍCIO 13 */
 let numeroArmazenado = Number(prompt('Digite um número inteiro maior que 1.'))
 let contador = 0
 
@@ -157,7 +191,7 @@ for (let i = 1; i <= numeroArmazenado ; i++) {
 } document.write(`<br> Foram impressos ${contador} números impares.`)
 
 
-
+/*EXERCÍCIO 14*/
 let readNumber = Number(prompt('Digite um número inteiro'))
 let product = 0
 
@@ -166,11 +200,11 @@ while (product < 500) {
 	product = readNumber
 	break
 }
-document.write(`O último valor é: ${product}`)*/
+document.write(`O último valor é: ${product}`)
 
 /*EXERCÍCIO 15*/
 
-/*let a = Number(prompt ("Digite o lado A do seu triângulo"))
+let a = Number(prompt ("Digite o lado A do seu triângulo"))
 let b = Number(prompt ("Digite o lado B do seu triângulo"))
 let c = Number(prompt ("Digite o lado C do seu triângulo"))
 
@@ -183,7 +217,7 @@ if(a==b && a==c && b==c){
 	document.write("É um triângulo ESCALENO")
 }
 
-
+/*EXERCÍCIO 16*/
 let currentYear = Number(prompt("Digite o ano atual"))
 let birthYear = Number(prompt("Digite o ano do seu nascimento"))
  
@@ -194,7 +228,7 @@ if (currentYear - birthYear < 16){
 	document.write(`Você poderá votar este ano`)
 }
 
-
+/*EXERCÍCIO 17*/
 const validVotes = Number(prompt ("Digite o número de votos válidos"))
 const nullVotes = Number(prompt ("Digite o número de votos nulos"))
 const blankVotes = Number(prompt ("Digite o número de votos em branco"))
@@ -214,8 +248,8 @@ if (totalVotes <= totalVoters) {
 	document.write(`O percentual de votos em branco é: ${percentBlank}% </br>`)
 } else {
 	document.write (`O número total de votos é maior que o número total de eleitores. Favor revisar os dados fornecidos </br>`)
-}*/
-
+}
+/*EXERCÍCIO 18*/
 const productCost = Number(prompt("Digite o valor do produto"))
 
 const paymentMethod = Number(prompt("Escolha uma das seguintes opções de pagamento utilizando o número correspondente:\n 1 - À vista \n 2 - Parcelado em 2 até 5 vezes\n 3 - Parcelado em 6 até 10 vezes\n 4 - Parcelado em 11 até 15 vezes"))
