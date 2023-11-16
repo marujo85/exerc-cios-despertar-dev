@@ -46,7 +46,6 @@ function compareCarPrice(a, b) {
 	console.log(a, b)
 	return a.price - b.price
 }
-
 console.log(carList)
 carList = carList.sort(compareCarPrice)
 console.log(carList)
@@ -62,8 +61,6 @@ function requestRegister() {
 	alert("Car added succesfully")
 }
 
-
-
 function registerNewCar(model, brand, year, color, price) {
 	const newCar = {
 		id: Date.now() + 10,
@@ -77,23 +74,18 @@ function registerNewCar(model, brand, year, color, price) {
 	
 }
 
-
-
 function showListCars() {
 	for (car of carList) {
 		alert(`ID: ${car.id}| Model: ${car.model}| Brand: ${car.brand} | Year: ${car.year} | Color: ${car.color} | Price: $${car.price} </br>`)
 	}
 }
-// showListCars(carList)
 
 function filterBrand(brand) {
 	const carListByBrand = carList.filter(car => car.brand.toLowerCase() === brand.toLowerCase());
 	for (car of carListByBrand) {
 		alert(`ID: ${car.id}| Model: ${car.model}| Color: ${car.color} | Price: ${car.price} </br>`)
 	}
-};
-
-
+}
 
 function carExists(id) {
 	const index = carList.findIndex(car => car.id === id)
@@ -114,7 +106,6 @@ function updateListCars(id, newcolor, newprice) {
 	}
 
 }
-
 
 function deleteCar(id) {
 	const index = carList.findIndex(car => car.id === id)
