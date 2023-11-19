@@ -46,6 +46,10 @@ function compareCarPrice(a, b) {
 	console.log(a, b)
 	return a.price - b.price
 }
+
+function takeMostExpensive (a, b){
+	
+}
 console.log(carList)
 carList = carList.sort(compareCarPrice)
 console.log(carList)
