@@ -1,11 +1,3 @@
-// async function getBodies() {
-// 	console.log("buscando dados...")
-// 	const result = await axios.get()
-// 	console.log(result.data.bodies)
-// }
-// getBodies().then((result)=>{
-// 	console.log(resul)
-// })
 
 const celestialBodies = []
 
@@ -22,10 +14,15 @@ function getStars(){
 		takeTheSmallest (bigToSmall)
 		takeTheMoonAndDensity (planets)
 		takeDiscoveryOrder (celestialBodies)
-		const starsByType = separateAstros(celestialBodies)
+		const astrosByType = separateAstros(celestialBodies)
 		getTheStar ('Deimos')
 		filteredByTemperature(planets)
-		orderedTypeBySize(starsByType)
+		orderedTypeBySize(astrosByType)
+		getOrbitedPlanets(celestialBodies)
+		getMassMedia(celestialBodies)
+		getSaturnoToPlutonDistance(celestialBodies)
+		getPlanetsWithMoons(planets)
+		finalFindings(celestialBodies)
 		
 
 	}).catch((err) => {
@@ -154,26 +151,80 @@ function separateAstros(celestialBodies) {
 	return newObj;
   }
 
-  function orderedTypeBySize(starsByType){
-	const celestialBodiesByTypeAndSize = []
+  function orderedTypeBySize(astrosByType){
+	const celestialBodiesByTypeAndSize = [];
+	for (const astroType in astrosByType) {
+		let filteredAstros = astrosByType[astroType].sort((a,b)=> b.meanRadius - a.meanRadius).slice(0, 3)
+		filteredAstros.forEach(celestialBody => {
+			console.log(celestialBody)
+		})
 
-	starsByType.forEach(celestialBodiesByType => {
-		const sortedBySize = celestialBodiesByType.slice().sort((a, b)=> a.meanRadius - b.meanRadius)
-		celestialBodiesByTypeAndSize.push(sortedBySize)
-	})
+	}
 	return celestialBodiesByTypeAndSize
 	}
- 
+
+	
+	function getOrbitedPlanets(celestialBodies) {
+		const orbited = celestialBodies.filter(body => {
+			return body.aroundPlanet != null
+		})
+		orbited.forEach(body => {
+			console.log(body.name, body.aroundPlanet);
+		})
+	
+	}
+	function getMassMedia(celestialBodies) {
+		const isAPlanet = celestialBodies.filter(body => body.bodyType === 'Planet')
+		const sum = isAPlanet.reduce((acc, currentValue) => {
+			return acc + currentValue.mass.massValue * Math.pow(10, currentValue.mass.massExponent)
+		}, 0)
+	
+		const media = sum / isAPlanet.length
+		console.log(media);
+	}
 
 
+	function getSaturnoToPlutonDistance(celestialBodies) {
+		const aphelion = celestialBodies.find(body => body.id === 'saturne').aphelion
+		const perihelion = celestialBodies.find(body => body.id === 'pluton').perihelion
+		console.log(perihelion - aphelion);
+	}
+
+	function getPlanetsWithMoons(planets) {
+		planets.forEach(body => {
+			if (body.moons != null) console.log(body.name, body.moons.length);
+		})
+	}
 
 
+	function finalFindings(celestialBodies) {
+		const arrayPlanets = celestialBodies.filter(body => body.isPlanet)
+		
+		console.log(arrayPlanets);
+		const masses = arrayPlanets.map(body => body.mass.massValue * Math.pow(10, body.mass.massExponent))
+		
+		masses.sort((a, b) => a - b)
+	
+		console.log(masses);
+		let indice1 = 0
+		let indice2 = 0
+		let indice = Math.floor(masses.length / 2)
+	
+		if (masses.length % 2 === 0) {
+			console.log('par');
+			indice1 = (masses.length / 2) - 1
+			indice2 = masses.length / 2
+			const pairMedian = (masses[indice1] + masses[indice2]) / 2
+			console.log(pairMedian);
+			const namesOfThePlanets = arrayPlanets.filter(body => body.mass.massValue * Math.pow(10, body.mass.massExponent) >= masses[indice1] && body.mass.massValue * Math.pow(10, body.mass.massExponent) <= masses[indice2])
+			console.log('planetas mais próximos da mediana:',namesOfThePlanets);
+	
+		} else {
+			console.log('impar');
+			const unpairedMedian = masses[Math.floor(masses.length / 2)]
+			console.log(unpairedMedian);
+			const namesOfThePlanets2 = arrayPlanets.filter(body => body.mass.massValue * Math.pow(10, body.mass.massExponent) === masses[indice])
+			console.log('planeta mais próximo da mediana:', namesOfThePlanets2);
+		}
+	}
 
-//   function distanceBetweenSaturnAndPluto(celestialBodies) {
-// 	const plutao = celestialBodies.find(body => body.englishName === 'Pluto')
-// 	const saturn = celestialBodies.find(body => body.englishName === 'Saturn')
-  
-// 	const sum = plutao.perihelion - saturn.aphelion;
-// 	console.log(sum);
-  
-//   }
