@@ -46,22 +46,22 @@
                 <tr >
                     <th scope="col">1</th>
                     <td>Valor Base (R$)</td>
-                    <td><input type="number" id="valor_base" value="0"></td>
+                    <td><input type="number" id="valor_base" onmouseout="calcular()" value="0"></td>
                 </tr>
                 <tr>
                     <th scope="col">2</th>
                     <td>Ajuda com transporte (R$)</td>
-                    <td><input type="number" id="valor_transporte" value="0"></td>
+                    <td><input type="number" id="valor_transporte" onmouseout="calcular()" value="0"></td>
                 </tr>
                 <tr>
                     <th scope="col">3</th>
                     <td>Ajuda alimentação (R$)</td>
-                    <td><input type="number" id="valor_alimentacao" value="0"></td>
+                    <td><input type="number" id="valor_alimentacao" onmouseout="calcular()" value="0"></td>
                 </tr>
                 <tr>
                     <th scope="col">4</th>
                     <th scope="col">Receita Total (R$)</th>
-                    <th scope="col"><input type="number" id="valor_receita" value="0" disabled></th>
+                    <th scope="col"><input onmouseout="" type="number" id="valor_receita"  value="0" disabled></th>
                 </tr>
                 <tr>
                     <th scope="col" colspan="3">DESCONTOS</th>
@@ -69,17 +69,17 @@
                 <tr>
                     <th scope="col">5</th>
                     <td>Desconto de Automóvel (R$)</td>
-                    <td><input type="number" id="valor_automovel" value="0"></td>
+                    <td><input type="number" id="valor_automovel" onmouseout="calcular()" value="0"></td>
                 </tr>
                 <tr>
                     <th scope="col">6</th>
                     <td>Faltas (R$)</td>
-                    <td><input type="number" id="faltas" value="0"></td>
+                    <td><input type="number" id="faltas" onmouseout="calcular()" value="0"></td>
                 </tr>
                 <tr>
                     <th scope="col" >7</th>
                     <th scope="col">Descontos Total (R$)</th>
-                    <th scope="col"><input type="number"  id="valor_descontos" value="0" disabled></th>
+                    <th scope="col"><input type="number" id="valor_descontos" value="0" disabled></th>
                 </tr>
                 <tr>
                     <th scope="col" colspan="3">TOTAL</th>
@@ -94,7 +94,7 @@
 
         <div style="height: 50px;"></div>
 
-        <button id="btn_calcular">Calcular</button>
+        <button id="btn_calcular" onclick="calcular()">Calcular</button>
 
     </div>
 
