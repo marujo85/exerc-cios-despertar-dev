@@ -1,18 +1,3 @@
-// /* Desenvolva aqui a rotina */
-// const valorBase = document.getElementById("valor_base")
-// const valorTransporte = document.getElementById("valor_transporte")
-// const valorAlimentacao = document.getElementById("valor_alimentacao")
-// const receitaTotal = document.getElementById("valor_receita")
-// valorBase.addEventListener('input', (e) => somaTotal())
-// valorTransporte.addEventListener('input', (e) => somaTotal())
-// valorAlimentacao.addEventListener('input', (e) => somaTotal())
-
-
-
-// function somaTotal(){
-// 	const result = Number(valorB.value) + Number(valorT.value) + Number(valorA.value)
-// 	receitaTotal.value = result
-// }
 
 const valorBase = document.querySelector('#valor_base')
 const valorTransporte = document.querySelector('#valor_transporte')
