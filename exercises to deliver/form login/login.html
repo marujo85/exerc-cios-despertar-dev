@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="./CSS/styles.css">
+</head>
+
+<body>
+	<form class="form-control">
+		<legend>Login</legend>
+		<label for="user">Usuário/Email:</label>
+		<input required type="text" id="user">
+		<label for="key">Senha:</label>
+		<input required type="password" id="key">
+
+		<div id="error-space"></div>
+
+
+		<button class="btn-submit" type="submit" onclick="login()">Login</button>
+		<a href="./cadastro.html">
+			<button class="btn-button" type="button">Cadastro</button>
+		</a>
+
+	</form>
+
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="./JS/api.js"></script>
+	<script>
+		const errorSpace = document.querySelector('#error-space')
+		const userInput = document.querySelector('#user')
+		const keyInput = document.querySelector('#key')
+
+		function login() {
+
+			if (userInput.value === "" || keyInput.value === "") {
+				errorSpace.innerHTML = `<p class="form-control error">Preencha todos os campos para continuar!</p>`
+			}
+		}
+
+	</script>
+
+</body>
+
+</html>
