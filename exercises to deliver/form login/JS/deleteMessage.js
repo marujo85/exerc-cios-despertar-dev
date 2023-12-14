@@ -7,7 +7,7 @@ async function deleteMessage(messageId) {
 	  if (response.status === 200) {
 		alert('Recado excluído com sucesso')
 	  }
-  
+	  location.reload()
 	} catch (error) {
 	  console.log('Erro ao excluir recado', error)
 	}

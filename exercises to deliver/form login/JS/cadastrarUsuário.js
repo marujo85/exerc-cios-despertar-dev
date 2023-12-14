@@ -1,28 +1,8 @@
-
-const nome = document.getElementById('name')
-const avatar = document.getElementById('avatar')
-const senha = document.getElementById('key')
-const email = document.getElementById('email')
-const errorSpace = document.querySelector('#error-space')
 const form = document.querySelector('form')
-
-async function createNew(newUser) {
-	try {
-		const response = await api.post('/users', newUser)
-
-		if (response.status === 201)
-			alert('Usuário cadastrado com sucesso')
-
-		nome.value = ''
-		avatar.value = ''
-		senha.value = ''
-		email.value = ''
-		location.href = "./login.html"
-
-	} catch (error) {
-		alert("Erro ao tentar criar o novo usuário", error)
-	}
-}
+const nameInput = document.getElementById('name')
+const emailInput = document.getElementById('email')
+const passwordInput = document.getElementById('password')
+const errorSpace = document.querySelector('#error-space')
 
 
 form.addEventListener('submit', (e) => {
@@ -31,20 +11,27 @@ form.addEventListener('submit', (e) => {
 		errorSpace.innerHTML = `<p class="form-control error">Preencha todos os campos para continuar!</p>`
 
 	} else {
-		const nomeValue = nome.value
-		const avatarValue = avatar.value
-		const senhaValue = senha.value
-		const emailValue = email.value
-
 		const newUser = {
-			nome: nomeValue,
-			avatar: avatarValue,
-			senha: senhaValue,
-			email: emailValue
+			name: nameInput.value,
+			email: emailInput.value,
+			password: passwordInput.value,
 		}
 		createNew(newUser)
 	}
 })
 
+async function createNew(newUser) {
+	try {
+		const response = await api.post('/users/signup', newUser)
+
+		if (response.status === 201)
+			alert('Usuário cadastrado com sucesso')
+
+		location.href = "./login.html"
+
+	} catch (error) {
+		alert("Erro ao tentar criar novo usuário", error)
+	}
+}
 
 

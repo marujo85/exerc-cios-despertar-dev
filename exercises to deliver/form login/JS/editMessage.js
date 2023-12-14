@@ -1,7 +1,9 @@
 const formEditMessage = document.getElementById('form-edit-message')
-
 const titleInput = document.getElementById('title-edit')
 const descriptionInput = document.getElementById('description-edit')
+
+const urlParams = new URLSearchParams(window.location.search) //?id="25"
+const messageId = urlParams.get("id") //25
 
 
 async function populateEditForm(){
@@ -11,6 +13,7 @@ async function populateEditForm(){
 
 		titleInput.value = message.title
 		descriptionInput.value = message.description
+
 	} catch (error){
 		console.log('erro ao buscar...', error)
 	}
@@ -33,19 +36,17 @@ formEditMessage.addEventListener('submit', (event)=>{
 
 })
 
-async function updateMessage() {
-	const editMessage = {
-	  title: 'Novo Título',
-	  description: 'Uma descrição legal'
-	}
-  
-	try {
+async function updateMessage(messageId, editMessage) {
+		try {
 	  const idMessage = 156
-	  const response = await api.put(`/notes/${idMessage}`, editMessage)
+	  const response = await api.put(`/notes/${messageId}`, editMessage)
   
 	  if(response.status === 200) {
 		alert('Recado atualizado com sucesso!')
 	  }
+	  
+	  location.href = "listar-recados.html"
+	  
 	}catch (error) {
 	  console.log('Erro ao atualizar recado.')
 	}

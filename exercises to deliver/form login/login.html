@@ -9,38 +9,37 @@
 </head>
 
 <body>
-	<form class="form-control">
-		<legend>Login</legend>
-		<label for="user">Usuário/Email:</label>
-		<input required type="text" id="user">
-		<label for="key">Senha:</label>
-		<input required type="password" id="key">
+	<div class="container">
+	<header class="header">
+		<img class="logo" src="./images/logo.svg" alt="">
+		<h1 class="title">Fazer login em sua conta</h1>
+		<h2 class="subtitle">Ainda não tem uma conta?
+		  <a href="./cadastro-usuário.html">Cadastre-se</a>
+		</h2>
+	  </header>
+  
+	  <main>
+		<form id="form-login">
+		  <div class="form-control">
+			<label for="email-login">E-mail</label>
+			<input type="email" id="email-login" name="email" placeholder="Insira seu e-mail" />
+		  </div>
+  
+		  <div class="form-control">
+			<label for="password-login">Senha</label>
+			<input type="password" id="password-login" name="password-login" placeholder="Insira sua senha" />
+		  </div>
 
-		<div id="error-space"></div>
-
-
-		<button class="btn-submit" type="submit" onclick="login()">Login</button>
-		<a href="./cadastro.html">
-			<button class="btn-button" type="button">Cadastro</button>
-		</a>
-
-	</form>
-
+		  <div id="error-space"></div>
+  
+		  <button class="btn-submit" type="submit">Entrar</button>
+		</form>
+	  </main>
+	</div>
+	<script src="https://kit.fontawesome.com/f9e19193d6.js" crossorigin="anonymous"></script>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="./JS/api.js"></script>
-	<script>
-		const errorSpace = document.querySelector('#error-space')
-		const userInput = document.querySelector('#user')
-		const keyInput = document.querySelector('#key')
-
-		function login() {
-
-			if (userInput.value === "" || keyInput.value === "") {
-				errorSpace.innerHTML = `<p class="form-control error">Preencha todos os campos para continuar!</p>`
-			}
-		}
-
-	</script>
+	<script src="./JS/login.js"></script>
 
 </body>
 

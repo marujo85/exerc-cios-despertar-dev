@@ -1,9 +1,34 @@
 const messagesContainer = document.querySelector('.messages-list')
 
-async function fetchMessages() {
+const prevPage = document.getElementById('prevPage')
+const nextPage = document.getElementById('nextPage')
+
+// Variáveis globais
+let currentPage = 1
+let totalPages = 1
+
+async function fetchMessages(page) {
   try {
-    const response = await api.get('/notes')
-    const messages = response.data
+    const userId = localStorage.getItem('userId')
+
+    if (!userId) {
+      alert("Você precisa fazer login para visualizar os recados.")
+
+      return
+    }
+
+    const params = {
+      page,
+      perPage: 3
+    }
+    const response = await api.get(`/notes/${userId}`, { params })
+    const messages = response.data.userMessages
+
+    totalPages = response.data.totalPages
+// async function fetchMessages() {
+//   try {
+//     const response = await api.get('/notes')
+//     const messages = response.data
 
     console.log(messages)
 
@@ -28,7 +53,7 @@ async function fetchMessages() {
       deleteIcon.addEventListener('click', (e) =>{
         const messageId = deleteIcon.getAttribute('data-id')
 
-        deleteMessage(messageId)
+        navigateToEditPage(messageId)
       })
     
     });
@@ -45,45 +70,22 @@ async function fetchMessages() {
   }
 }
 
-fetchMessages()
+fetchMessages(currentPage)
 
-
-
-// createNewMessage()
-
-async function updateMessage() {
-  const editMessage = {
-    title: 'Novo Título',
-    description: 'Uma descrição legal'
-  }
-
-  try {
-    const idMessage = 156
-    const response = await api.put(`/notes/${idMessage}`, editMessage)
-
-    if(response.status === 200) {
-      alert('Recado atualizado com sucesso!')
-    }
-  }catch (error) {
-    console.log('Erro ao atualizar recado.')
-  }
+function navigateToEditPage(messageId) {
+  location.href = `editar-recado.html?id=${messageId}`
 }
 
-// updateMessage()
-
-async function deleteMessage() {
-  const idMessage = 109
-
-  try {
-    const response = await api.delete(`/notes/${idMessage}`)
-
-    if (response.status === 200) {
-      alert('Recado exclído com sucesso')
-    }
-
-  } catch (error) {
-    console.log('Erro ao excluir recado', error)
+prevPage.addEventListener('click', () => {
+  if (currentPage > 1) {
+    currentPage--
+    fetchMessages(currentPage)
   }
-}
-// deleteMessage()
-// fetchMessages()
+})
+
+nextPage.addEventListener('click', () => {
+  if (currentPage < totalPages) {
+    currentPage++;
+    fetchMessages(currentPage)
+  }
+})
