@@ -39,3 +39,4 @@ async function createNewMessage(message){
     alert("Erro ao tentar criar a mensagem", error)
   }
 }
+

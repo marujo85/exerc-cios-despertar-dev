@@ -17,7 +17,7 @@ formLogin.addEventListener('submit', (e) => {
 async function login(data) {
 	try{
 		const response = await api.post('/users/login', data)
-		if (userInput.value === "" || keyInput.value === "") {
+		if (emailInput.value === "" || passwordInput.value === "") {
 			errorSpace.innerHTML = `<p class="form-control error">Preencha todos os campos para continuar!</p>`
 		
 		}if (response.status === 200) {

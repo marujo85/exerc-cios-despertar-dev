@@ -7,7 +7,7 @@ const errorSpace = document.querySelector('#error-space')
 
 form.addEventListener('submit', (e) => {
 	e.preventDefault()
-	if (!nome.value || !avatar.value || !senha.value || !email.value) {
+	if (!nameInput.value ||!passwordInput.value || !emailInput.value) {
 		errorSpace.innerHTML = `<p class="form-control error">Preencha todos os campos para continuar!</p>`
 
 	} else {

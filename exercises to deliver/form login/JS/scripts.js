@@ -1,9 +1,10 @@
 const messagesContainer = document.querySelector('.messages-list')
-
 const prevPage = document.getElementById('prevPage')
 const nextPage = document.getElementById('nextPage')
 
+
 // Variáveis globais
+const pageNumbers = document.getElementById('pageNumbers')
 let currentPage = 1
 let totalPages = 1
 
@@ -24,13 +25,20 @@ async function fetchMessages(page) {
     const response = await api.get(`/notes/${userId}`, { params })
     const messages = response.data.userMessages
 
-    totalPages = response.data.totalPages
-// async function fetchMessages() {
-//   try {
-//     const response = await api.get('/notes')
-//     const messages = response.data
-
     console.log(messages)
+
+    totalPages = response.data.totalPages
+    const pageNumbers = document.getElementById('pageNumbers')
+
+    if(!pageNumbers.children.length){
+      for(let contador = 1; contador <= totalPages; contador++) {
+             pageNumbers.innerHTML += `<button onclick=fetchMessages(${contador}) >${contador}</button>` 
+     }
+ 
+    }
+    pageNumbers.innerText = `${currentPage} de ${totalPages}`
+
+   
 
     messagesContainer.innerHTML = ''
 
@@ -50,15 +58,19 @@ async function fetchMessages(page) {
       messagesContainer.appendChild(messageCard)
       
       const deleteIcon = messageCard.querySelector('.fa-trash')
+
       deleteIcon.addEventListener('click', (e) =>{
         const messageId = deleteIcon.getAttribute('data-id')
 
+        deleteMessage(messageId)
+      })
+      const editIcon = messageCard.querySelector('.fa-edit')
+      editIcon.addEventListener('click', () => {
+        const messageId = editIcon.getAttribute('data-id')
+
         navigateToEditPage(messageId)
       })
-    
     });
-
-
 
     if (messages.length === 0) {
       const h3 = document.createElement('h3')
@@ -89,3 +101,8 @@ nextPage.addEventListener('click', () => {
     fetchMessages(currentPage)
   }
 })
+
+
+// fetchMessages(currentPage)
+
+
