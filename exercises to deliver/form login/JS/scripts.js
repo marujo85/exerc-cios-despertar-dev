@@ -1,6 +1,7 @@
 const messagesContainer = document.querySelector('.messages-list')
 const prevPage = document.getElementById('prevPage')
 const nextPage = document.getElementById('nextPage')
+const btnAddMessage = document.getElementById('btn-addMessage')
 
 
 // Variáveis globais
@@ -102,6 +103,9 @@ nextPage.addEventListener('click', () => {
   }
 })
 
+btnAddMessage.addEventListener('click', () =>  {
+  location.href = `cadastrar-recado.html?id=${messageId}`
+})
 
 // fetchMessages(currentPage)
 
