@@ -10,31 +10,37 @@
 
 <body>
 	<div class="container">
-	<header class="header">
-		<img class="logo" src="./images/logo.svg" alt="">
-		<h1 class="title">Fazer login em sua conta</h1>
-		<h2 class="subtitle">Ainda não tem uma conta?
-		  <a href="./cadastro-usuário.html">Cadastre-se</a>
-		</h2>
-	  </header>
-  
-	  <main>
-		<form id="form-login">
-		  <div class="form-control">
-			<label for="email-login">E-mail</label>
-			<input type="email" id="email-login" name="email" placeholder="Insira seu e-mail" />
-		  </div>
-  
-		  <div class="form-control">
-			<label for="password-login">Senha</label>
-			<input type="password" id="password-login" name="password-login" placeholder="Insira sua senha" />
-		  </div>
+		<header class="header">
+			<img class="logo" src="./images/logo.svg" alt="">
+			<h1 class="title">Fazer login em sua conta</h1>
+			<h2 class="subtitle">Ainda não tem uma conta?
+				<a href="./cadastro-usuário.html">Cadastre-se</a>
+			</h2>
+		</header>
 
-		  <div id="error-space"></div>
-  
-		  <button class="btn-submit" type="submit">Entrar</button>
-		</form>
-	  </main>
+		<main>
+			<form id="form-login">
+				<div class="form-control">
+					<label for="email-login">E-mail</label>
+					<input type="email" id="email-login" name="email" placeholder="Insira seu e-mail" />
+					<i class="fas fa-exclamation-circle"></i>
+					<i class="fas fa-check-circle"></i>
+					<small></small>
+				</div>
+
+				<div class="form-control">
+					<label for="password-login">Senha</label>
+					<input type="password" id="password-login" name="password-login" placeholder="Insira sua senha" />
+					<i class="fas fa-exclamation-circle"></i>
+					<i class="fas fa-check-circle"></i>
+					<small></small>
+				</div>
+
+				<div id="error-space"></div>
+
+				<button class="btn-submit" type="submit">Entrar</button>
+			</form>
+		</main>
 	</div>
 	<script src="https://kit.fontawesome.com/f9e19193d6.js" crossorigin="anonymous"></script>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>

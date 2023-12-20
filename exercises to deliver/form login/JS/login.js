@@ -10,13 +10,29 @@ formLogin.addEventListener('submit', (e) => {
 	  email: emailInput.value,
 	  password: passwordInput.value,
 	}
-  
-	login(data)
+
+	if (!emailInput.value){
+		setError(emailInput, "Email é obrigatório")
+	} else {
+		setSucces(emailInput)
+	}
+	if (!passwordInput.value){
+		setError(passwordInput, "Senha obrigatória")
+	} else if((passwordInput.value).length < 6){
+		setError(passwordInput, "A senha deve ter mais do que 6 caracteres")
+	} else{
+		setSucces(passwordInput)
+	}
+	if (emailInput.value && (passwordInput.value),length >= 6){
+		login(data)
+	}
+	
   })
 
 async function login(data) {
 	try{
 		const response = await api.post('/users/login', data)
+		
 		if (emailInput.value === "" || passwordInput.value === "") {
 			errorSpace.innerHTML = `<p class="form-control error">Preencha todos os campos para continuar!</p>`
 		
@@ -31,5 +47,18 @@ async function login(data) {
 		}
 	  }
 
+function setError(input, message){
+	const formControl = input.parentElement
+	const small = formControl.querySelector('small')
 
-// }
+	small.textContent = message
+	formControl.classlist.remove('success')
+	formControl.classlist.add('error')
+
+}
+ 
+function setSucces (input){
+	const formControl = input.parentElement
+	formControl.classlist.remove('error')
+	formControl.classlist.add('success')
+}

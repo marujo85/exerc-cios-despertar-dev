@@ -8,14 +8,14 @@ const messageId = urlParams.get("id") //25
 
 async function populateEditForm(){
 	try{
-		const response = await api.get(`/notes/${messageId}`)
+		const response = await api.get(`/notes/list/${messageId}`)
 		const message = response.data 
 
 		titleInput.value = message.title
 		descriptionInput.value = message.description
 
 	} catch (error){
-		console.log('erro ao buscar...', error)
+		console.log('erro ao buscar recado', error)
 	}
 }
 
@@ -38,7 +38,7 @@ formEditMessage.addEventListener('submit', (event)=>{
 
 async function updateMessage(messageId, editMessage) {
 		try {
-	  const idMessage = 156
+	  
 	  const response = await api.put(`/notes/${messageId}`, editMessage)
   
 	  if(response.status === 200) {

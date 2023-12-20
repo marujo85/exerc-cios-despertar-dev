@@ -29,15 +29,36 @@ async function fetchMessages(page) {
     console.log(messages)
 
     totalPages = response.data.totalPages
-    const pageNumbers = document.getElementById('pageNumbers')
+    
+    const pageNumbersContainer = document.getElementById("pageNumbers")
 
-    if(!pageNumbers.children.length){
-      for(let contador = 1; contador <= totalPages; contador++) {
-             pageNumbers.innerHTML += `<button onclick=fetchMessages(${contador}) >${contador}</button>` 
-     }
- 
+    pageNumbersContainer.innerHTML = "" 
+
+    for (let contador = 1; contador <= totalPages; contador++) {
+      const pageNumber = document.createElement("button")
+      pageNumber.textContent = contador
+      pageNumber.classList.add("pageNumber")
+
+      if (contador === currentPage) {
+        pageNumber.classList.add("active")
+      }
+
+      pageNumber.addEventListener("click", () => {
+        currentPage = contador
+        fetchMessages(currentPage)
+      });
+
+      pageNumbersContainer.appendChild(pageNumber)
     }
-    pageNumbers.innerText = `${currentPage} de ${totalPages}`
+    // const pageNumbers = document.getElementById('pageNumbers')
+
+    // if(!pageNumbers.children.length){
+    //   for(let contador = 1; contador <= totalPages; contador++) {
+    //          pageNumbers.innerHTML += `<button onclick=fetchMessages(${contador}) >${contador}</button>` 
+    //  }
+ 
+    // }
+    // pageNumbers.innerText = `${currentPage} de ${totalPages}`
 
    
 

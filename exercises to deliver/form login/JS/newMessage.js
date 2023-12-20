@@ -5,7 +5,7 @@ const description = document.getElementById("description")
 form.addEventListener('submit', (e) =>{
   e.preventDefault()
 
-  const titleValue=title.value
+  const titleValue = title.value
   const descriptionValue = description.value
 
   const userId = localStorage.getItem('userId')

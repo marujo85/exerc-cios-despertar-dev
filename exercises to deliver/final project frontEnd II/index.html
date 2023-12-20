@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./CSS/styles.css">
+</head>
+
+
+<body>
+    <header>
+        <img class="image-white-and-black" src="./CSS/images/images/RICK_MORTY_ICON-01.svg" alt="emoji Rick">
+
+        <div class="page-content">
+            <h1 class="title">Rick and Morty API</h1>
+        </div>
+
+        <div> <input placeholder="Pesquisar" type="text" class="search-bar"> </input>
+        </div>
+
+    </header>
+
+    <main>
+        <div class="cards">
+            <div id="content-cards"></div>
+        </div>
+        <img id="background-cards" src="./CSS/images/rick-and-morty-portal-shoes-white-clothing-zavvi-23.png"
+            alt="logo Ricky and Morty">
+
+        <div class="buttons">
+            <button id="btn-previous">⬅</button>
+            <p id="display-currentPage">1</p>
+            <button id="btn-next">➡</button>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer">
+            <p>PERSONAGENS:</p>
+        </div>
+        <div class="footer">
+            <p>LOCALIZAÇÕES:</p>
+        </div>
+        <div class="footer">
+            <p>EPISÓDIOS:</p>
+        </div>
+
+
+    </footer>
+
+    <div class="end-page">
+        <small> Desenvolvido por <strong>Mirna Anocibar Araújo</strong> em Dezembro, 2023</small>
+    </div>
+
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./JS/api.js"></script>
+    <script src="./JS/scripts.js"></script>
+</body>
+
+</html>
