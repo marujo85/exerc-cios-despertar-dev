@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(236, 231, 231);
+    height: 100vh;
+}
+
+.circle {
+    width: 200px;
+    height: 200px;
+    border: solid 1px;
+    border-radius: 100%;
+}
+
+.yellow {
+    background-color: rgb(244, 147, 10);
+}
+.blue {
+    background-color: rgb(67, 67, 238);
+}

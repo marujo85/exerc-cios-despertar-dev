@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container {
+    display: flex;
+    justify-content: flex-end;
+    background-color: rgb(236, 231, 231);
+    height: 50vh;
+}
+
+.container1{
+    display: flex;
+    align-items:flex-end ;
+    justify-content: space-between;
+    background-color: rgb(236, 231, 231);
+    height: 50vh;
+}
+
+.circle {
+    width: 200px;
+    height: 200px;
+    border: solid 1px;
+    border-radius: 100%;
+}
+
+.yellow {
+    background-color: rgb(244, 147, 10);
+}
+
+.blue-box {
+    background-color: rgb(37, 37, 238);
+    height: 200px;
+    width: 200px;
+    border: solid 2px;
+}
