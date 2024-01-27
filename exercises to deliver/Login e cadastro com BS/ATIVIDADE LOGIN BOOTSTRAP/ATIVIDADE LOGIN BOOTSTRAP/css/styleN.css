@@ -1,0 +1,44 @@
+header{
+  height: 8%;
+}
+
+
+ .container{
+  height: 100%;
+  width: 40%;
+}
+
+.color-green{
+  background-color:#047b59;
+}
+
+.form-control.success input,
+.form-control.success textarea {
+  border-color: #2ecc71;
+}
+
+.form-control.error input,
+.form-control.error textarea {
+  border-color: #e74c3c;
+}
+
+.form-control.success i.fa-check-circle {
+  color: #2ecc71;
+  visibility: visible;
+}
+
+.form-control.error i.fa-exclamation-circle {
+  color: #e74c3c;
+  visibility: visible;
+}
+
+.form-control.error small {
+  visibility: visible;
+  color: #e74c3c;
+}
+.form-control i {
+  position: absolute;
+  top: 40px;
+  right: 10px;
+  visibility: hidden;
+}
